@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserTypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +16,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Auth.login');
+});
+Route::get('/signup', function () {
+    return view('Auth.signup');
 });
 
 Route::resource('usertype', UserTypeController::class);
-// Custom route for the "edit" action
 Route::get('usertype/edit/{id}', [UserTypeController::class, 'edit']);
 Route::post('usertype/update/{id}', [UserTypeController::class, 'update']);
 Route::post('usertype/store', [UserTypeController::class, 'store']);
 Route::get('usertype/destroy/{id}', [UserTypeController::class, 'destroy']);
+
+Route::post('user/signupuser', [UserController::class, 'signupuser']);
+Route::post('user/login', [UserController::class, 'login']);
