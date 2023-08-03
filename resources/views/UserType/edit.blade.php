@@ -6,6 +6,7 @@
 </head>
 
 <body>
+    @include('header')
     <div class="container">
         <form method="POST" action="/usertype/update/{{$usertype->id}}">
             @csrf   

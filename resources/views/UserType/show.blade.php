@@ -5,6 +5,8 @@
     </head>
 
     <body>
+        @include('header')
+        <div class="container">
         <a href="/usertype/create" class="btn btn-primary" style="float: right;"> New Record </a>
         <table class="table table-hover">
             <thead>
@@ -31,5 +33,6 @@
                 @endforeach
             </tbody>
         </table>
+        </div>
     </body>
 </html>

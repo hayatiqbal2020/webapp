@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserTypeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,7 @@ Route::get('usertype/destroy/{id}', [UserTypeController::class, 'destroy']);
 
 Route::post('user/signupuser', [UserController::class, 'signupuser']);
 Route::post('user/login', [UserController::class, 'login']);
+Route::get('logout', function () {
+    Session::flush();
+    return redirect("/");
+});
